@@ -25,9 +25,6 @@
 
 <div align="center">
 
-  <img src="pc_readme.png" alt="logo" />
-  <br/>
-
 </div>
 
 **[BlogApp]** This is a Ruby on Rails project.
