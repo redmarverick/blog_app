@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.1.4"
+ruby "3.2.2"
 
 gem 'rspec-rails', '>= 5.0'
 
@@ -17,11 +17,9 @@ gem "sprockets-rails"
 gem "pg", "~> 1.1"
 
 gem 'rubocop', '>= 1.0', '< 2.0'
-
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
-gem 'rubocop-discourse'
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
 
