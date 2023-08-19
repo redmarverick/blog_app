@@ -155,7 +155,7 @@ GEM
       activerecord (= 7.0.7)
       activestorage (= 7.0.7)
       activesupport (= 7.0.7)
-      bundler (>= 1.15.0)
+      bundler (>= 2.4.18)
       railties (= 7.0.7)
     rails-dom-testing (2.2.0)
       activesupport (>= 5.0.0)
@@ -239,6 +239,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
+  bundler (~> 2.4.18)
   capybara
   debug
   importmap-rails
