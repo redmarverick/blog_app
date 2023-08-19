@@ -1,25 +1,24 @@
-# spec/rails_helper.rb
 
-ENV['RAILS_ENV'] ||= 'test'
-require File.expand_path('../config/environment', __dir__)
-
-require 'rspec/rails'
 require 'spec_helper'
+ENV['RAILS_ENV'] ||= 'test'
+require_relative '../config/environment'
 
-# ... any other configurations you might need
+abort('The Rails environment is running in production mode!') if Rails.env.production?
+require 'rspec/rails'
 
+begin
+  ActiveRecord::Migration.maintain_test_schema!
+rescue ActiveRecord::PendingMigrationError => e
+  abort e.to_s.strip
+end
 RSpec.configure do |config|
-  config.expect_with :rspec do |expectations|
-    expectations.include_chain_clauses_in_custom_matcher_descriptions = true
-  end
 
-  config.mock_with :rspec do |mocks|
-    mocks.verify_partial_doubles = true
-  end
+  config.fixture_path = "#{Rails.root}/spec/fixtures"
 
-  # ... other configurations
+  config.use_transactional_fixtures = true
 
-  config.shared_context_metadata_behavior = :apply_to_host_groups
+  config.infer_spec_type_from_file_location!
 
-  # Add any additional configuration for matchers and such here.
+  config.filter_rails_from_backtrace!
+
 end

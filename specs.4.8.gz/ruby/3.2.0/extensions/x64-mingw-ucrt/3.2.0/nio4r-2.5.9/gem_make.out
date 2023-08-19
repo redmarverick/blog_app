@@ -1,0 +1,18 @@
+current directory: C:/Users/Nyldr/IdeaProjects/blog_app/specs.4.8.gz/ruby/3.2.0/gems/nio4r-2.5.9/ext/nio4r
+C:/Ruby32-x64/bin/ruby.exe extconf.rb
+
+current directory: C:/Users/Nyldr/IdeaProjects/blog_app/specs.4.8.gz/ruby/3.2.0/gems/nio4r-2.5.9/ext/nio4r
+make DESTDIR\= sitearchdir\=./.gem.20230819-19908-u8mj1 sitelibdir\=./.gem.20230819-19908-u8mj1 clean
+make: *** Sem regra para processar o alvo 'clean' .  Pare.
+
+current directory: C:/Users/Nyldr/IdeaProjects/blog_app/specs.4.8.gz/ruby/3.2.0/gems/nio4r-2.5.9/ext/nio4r
+make DESTDIR\= sitearchdir\=./.gem.20230819-19908-u8mj1 sitelibdir\=./.gem.20230819-19908-u8mj1
+make: Nada a ser feito para 'all'. 
+
+current directory: C:/Users/Nyldr/IdeaProjects/blog_app/specs.4.8.gz/ruby/3.2.0/gems/nio4r-2.5.9/ext/nio4r
+make DESTDIR\= sitearchdir\=./.gem.20230819-19908-u8mj1 sitelibdir\=./.gem.20230819-19908-u8mj1 install
+make: Nada a ser feito para 'install'. 
+
+current directory: C:/Users/Nyldr/IdeaProjects/blog_app/specs.4.8.gz/ruby/3.2.0/gems/nio4r-2.5.9/ext/nio4r
+make DESTDIR\= sitearchdir\=./.gem.20230819-19908-u8mj1 sitelibdir\=./.gem.20230819-19908-u8mj1 clean
+make: *** Sem regra para processar o alvo 'clean' .  Pare.
