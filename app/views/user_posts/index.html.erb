@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User's Posts</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="min-h-screen flex flex-col justify-center items-center bg-gray-100">
+  <% if @posts.empty? %>
+    <div class="p-4 bg-white border border-gray-300 rounded-lg">No posts yet</div>
+  <% else %>
+    <ul class="space-y-4">
+      <% @posts.each do |epost| %>
+        <a href="<%= user_post_path(@user, epost) %>" class="hover:underline">
+          <li class="p-4 bg-white border border-gray-300 rounded-lg">
+            <div class="text-lg font-semibold"><%= epost.title %></div>
+            <div class="text-gray-600">
+              <%= truncate(epost.text, length: 165) %>
+            </div>
+            <div class="text-gray-600 mt-2">
+              Comments: <%= epost.comments_counter %> Likes: <%= epost.likes_counter %>
+            </div>
+          </li>
+        </a>
+      <% end %>
+    </ul>
+    <div class="flex justify-between mt-4">
+      <% if @page > 1 %>
+        <a href="<%= user_posts_path(@user, page: @page - 1) %>" class="flex items-center space-x-2">
+          <button class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">Previous Page</button>
+        </a>
+      <% end %>
+      <% if @page < @total_pages %>
+        <a href="<%= user_posts_path(@user, page: @page + 1) %>" class="flex items-center space-x-2">
+          <button class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">Next Page</button>
+        </a>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+</body>
+</html>
