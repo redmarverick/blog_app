@@ -53,20 +53,22 @@ Rails 7.07 or above
 
 ### Setup
 
-Clone this repository to your desired folder:
+git clone github.com/redmarverick/blog_app.git
 
 
 ### Install
 
-You don't need to install this project.
+go to the folder of the repository, and run this line in the terminal to install dependences:
+
+bundle install
 
 ### Usage
 
-run rails server
+run rails db:create db:migrate
 
 ### Run tests
 
-No testing implemented yet
+run spec
 
 ### Deployment
 
