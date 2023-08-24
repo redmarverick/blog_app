@@ -54,7 +54,7 @@ RSpec.describe Post, type: :model do
     expect(assc.macro).to eq :has_many
   end
 
-  it 'do not update user posts counter after creation' do
+  it 'update user posts counter after creation' do
     @post1 = Post.create(
       title: 'Raondom title 2',
       text: 'random text 2',
@@ -63,7 +63,7 @@ RSpec.describe Post, type: :model do
       likes_counter: 0
     )
     user1 = User.find(@user1.id)
-    expect(user1.posts_counter).to eq(0)
+    expect(user1.posts_counter).to eq(1)
   end
   # rubocop:disable Metrics/BlockLength
   it 'returns recent comments' do

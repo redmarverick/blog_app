@@ -25,9 +25,11 @@ class Post < ApplicationRecord
   def decrement_posts_counter
     author.decrement!(:posts_counter)
   end
+
   def update_comments_counter
     update_column(:comments_counter, comments.count)
   end
+
   def update_likes_counter
     update_column(:likes_counter, likes.count)
   end
