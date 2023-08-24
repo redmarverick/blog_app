@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User's Post</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="min-h-screen flex flex-col justify-center items-center bg-gray-100">
+  <div class="p-4 bg-white border border-gray-300 rounded-lg">
+    <div class="text-lg font-semibold"><%= @post.title %></div>
+    <div class="text-gray-600"><%= @post.text %></div>
+    <div class="text-gray-600 mt-2">
+      Comments: <%= @post.comments_counter %> Likes: <%= @post.likes_counter %>
+    </div>
+  </div>
+  <ul class="mt-4 pt-4 pb-4 space-y-4 bg-white border border-gray-300 rounded-lg">
+    <% if @post.comments.present? %>
+      <% @post.comments.each do |ecomment| %>
+        <li class="pr-4 pl-4">
+          <div><%= ecomment.author.name %>: <%= ecomment.text %></div>
+        </li>
+      <% end %>
+    <% else %>
+      <li class="p-4 bg-white border border-gray-300 rounded-lg">
+        0 Comments
+      </li>
+    <% end %>
+  </ul>
+</div>
+</body>
+</html>

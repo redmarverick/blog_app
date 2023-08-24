@@ -7,6 +7,8 @@
 # Ignore bundler config.
 /.bundle
 
+/specs.4.8.gz
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
