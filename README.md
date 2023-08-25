@@ -92,7 +92,9 @@ No deployment implemented yet
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-More data
+- Form to add users
+- Authentication
+- API Endpoints
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
