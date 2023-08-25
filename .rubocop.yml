@@ -4,6 +4,7 @@ AllCops:
     - "Guardfile"
     - "Rakefile"
     - "node_modules/**/*"
+    - "specs.4.8.gz/**/*"
 
   DisplayCopNames: true
 
