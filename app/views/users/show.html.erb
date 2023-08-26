@@ -5,31 +5,31 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body>
-<div class="min-h-screen flex flex-col justify-center items-center bg-gray-100">
-  <div class="flex items-center space-x-4 p-4 bg-white border border-gray-300 rounded-lg">
+<div class="min-h-screen w-full mt-2 flex flex-col justify-center items-center bg-gray-100">
+  <div class="flex w-10/12 items-center space-x-4 p-4 bg-white border border-gray-300 rounded-lg">
     <div class="w-12 h-12">
       <img src="<%= @user.photo %>" class="w-full h-full rounded-full">
     </div>
-    <div class="flex flex-col">
+    <div class="flex flex-col w-full">
       <div class="text-lg font-semibold"><%= @user.name %></div>
-      <div class="text-gray-600">Posts: <%= @user.posts_counter %></div>
+      <div class="text-gray-600 w-full text-right">Posts: <%= @user.posts_counter %></div>
     </div>
   </div>
-  <div class="mt-4 p-4 bg-white border border-gray-300 rounded-lg">
+  <div class="mt-4 p-4 w-10/12 bg-white border border-gray-300 rounded-lg">
     <div class="text-lg font-semibold mb-2">Bio</div>
     <div><%= @user.bio %></div>
   </div>
-  <ul class="mt-4 space-y-4 bg-white border border-gray-300 rounded-lg">
+  <ul class="mt-4 w-10/12 space-y-4">
     <% if @user.three_most_recent_posts.present? %>
       <% @user.three_most_recent_posts.each do |epost| %>
-        <li class="p-4">
+        <li class="p-4 bg-white border border-gray-300 rounded-lg">
           <a href="<%= user_post_path(@user, epost) %>" class="text-blue-500 hover:underline">
             <div class="text-lg font-semibold"><%= epost.title %></div>
           </a>
           <div class="text-gray-600">
             <%= truncate(epost.text, length: 165) %>
           </div>
-          <div class="text-gray-600 mt-2">
+          <div class="text-gray-600 mt-2 text-right">
             Comments: <%= epost.comments_counter %> Likes: <%= epost.likes_counter %>
           </div>
         </li>
