@@ -5,11 +5,20 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body>
-<div class="min-h-screen flex flex-col justify-center items-center bg-gray-100">
+<div class="min-h-screen w-full flex flex-col justify-center items-center bg-gray-100">
+  <div class="flex w-10/12 items-center space-x-4 p-4 bg-white border border-gray-300 rounded-lg mb-4 mt-4">
+    <div class="w-12 h-12">
+      <img src="<%= @user.photo %>" class="w-full h-full rounded-full">
+    </div>
+    <div class="flex flex-col w-full">
+      <div class="text-lg font-semibold"><%= @user.name %></div>
+      <div class="text-gray-600 w-full text-right">Posts: <%= @user.posts_counter %></div>
+    </div>
+  </div>
   <% if @posts.empty? %>
     <div class="p-4 bg-white border border-gray-300 rounded-lg">No posts yet</div>
   <% else %>
-    <ul class="space-y-4">
+    <ul class="w-10/12">
       <% @posts.each do |epost| %>
         <a href="<%= user_post_path(@user, epost) %>" class="hover:underline">
           <li class="p-4 bg-white border border-gray-300 rounded-lg">
@@ -17,11 +26,22 @@
             <div class="text-gray-600">
               <%= truncate(epost.text, length: 165) %>
             </div>
-            <div class="text-gray-600 mt-2">
+            <div class="text-gray-600 text-right">
               Comments: <%= epost.comments_counter %> Likes: <%= epost.likes_counter %>
             </div>
           </li>
         </a>
+          <% if epost.comments.present? %>
+            <ul class="p-4 bg-white border border-gray-300 rounded-lg mb-4">
+              <% epost.five_most_recent_comments.each do |ecomment| %>
+                <li><%= ecomment.author.name %>: <%= ecomment.text %></li>
+              <% end %>
+            </ul>
+          <% else %>
+            <ul class="p-4 bg-white border border-gray-300 rounded-lg mb-4">
+              <li class="text-gray-600 ">0 Comments</li>
+            </ul>
+          <% end %>
       <% end %>
     </ul>
     <div class="flex justify-between mt-4">
