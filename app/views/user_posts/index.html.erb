@@ -31,15 +31,17 @@
             </div>
           </li>
         </a>
-        <ul class="p-4 bg-white border border-gray-300 rounded-lg mb-4">
           <% if epost.comments.present? %>
-            <% epost.comments.each do |ecomment| %>
-              <li><%= ecomment.author.name %>: <%= ecomment.text %></li>
-            <% end %>
+            <ul class="p-4 bg-white border border-gray-300 rounded-lg mb-4">
+              <% epost.five_most_recent_comments.each do |ecomment| %>
+                <li><%= ecomment.author.name %>: <%= ecomment.text %></li>
+              <% end %>
+            </ul>
           <% else %>
-            <li class="text-gray-600 ">0 Comments</li>
+            <ul class="p-4 bg-white border border-gray-300 rounded-lg mb-4">
+              <li class="text-gray-600 ">0 Comments</li>
+            </ul>
           <% end %>
-        </ul>
       <% end %>
     </ul>
     <div class="flex justify-between mt-4">
