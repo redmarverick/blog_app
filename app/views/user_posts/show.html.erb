@@ -26,6 +26,11 @@
       </li>
     <% end %>
   </ul>
+  <%= link_to new_user_post_comment_path(@user, @post), class: "hover:underline" do %>
+    <button class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 mt-2">
+      Add Comment
+    </button>
+  <% end %>
 </div>
 </body>
 </html>

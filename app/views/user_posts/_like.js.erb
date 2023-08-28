@@ -1,0 +1,8 @@
+// Update the like count
+document.querySelector(".post-<%= @post.id %> .likes-count").textContent = "<%= @post.likes_counter %>";
+
+// Update the like button style
+document.querySelector(".post-<%= @post.id %> .like-button").classList.add("liked");
+
+// Update the "Like" button link to use the correct path
+document.querySelector(".post-<%= @post.id %> .like-button").setAttribute("href", "<%= like_post_path(@post) %>");

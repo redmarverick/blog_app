@@ -7,6 +7,8 @@ class Comment < ApplicationRecord
   private
 
   def update_comments_counter
+    Rails.logger.info "Updating comments counter for post #{post.id}"
     post.update(comments_counter: post.comments.count)
+    Rails.logger.info "Comments counter updated to #{post.comments_counter}"
   end
 end
