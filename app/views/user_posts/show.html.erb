@@ -8,7 +8,7 @@
 <body>
 <div class="min-h-screen w-full flex flex-col justify-center items-center bg-gray-100">
   <div class="p-4 w-11/12 bg-white border border-gray-300 rounded-lg">
-    <div class="text-lg font-semibold"><%= @post.title %></div>
+    <div class="text-lg font-semibold"><%= @post.title %> by <%= @post.author.name%></div>
     <div class="text-gray-600 mt-0 text-right text-top text-sm h-4">
       <i class="mb-1">Comments: <%= @post.comments_counter %> Likes: <%= @post.likes_counter %></i>
       <%= button_to user_post_likes_path(@user, @post), method: :post, class: 'like-button', remote: true do %>

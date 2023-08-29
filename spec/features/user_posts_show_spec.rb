@@ -25,10 +25,11 @@ RSpec.describe 'Post Show Page', type: :feature, js: true do
   it 'I can see post information and comments' do
     visit user_post_path(user_id: @user.id.to_s, id: @post.id)
 
-    expect(page).to have_content(@post.title)
-    expect(page).to have_content("Comments: 3")
-    expect(page).to have_content("Likes: 0")
-    expect(page).to have_content(@post.text)
+    expect(page).to have_content(@post.title) # THIS IS THE POST TITLE CHECKING
+    expect(page).to have_content(@post.author.name) # THIS IS THE POST AUTHOR (WHO WROTE THE POST) CHECKING
+    expect(page).to have_content("Comments: 3") # THIS IS THE POST COMMENTS CHECKING
+    expect(page).to have_content("Likes: 0") # THIS IS THE POST LIKES CHECKING
+    expect(page).to have_content(@post.text) # THIS IS THE POST BODY CHECKING
 
     @comments.each do |comment|
       expect(page).to have_content(comment.author.name)
