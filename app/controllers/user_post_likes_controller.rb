@@ -1,5 +1,4 @@
 class UserPostLikesController < ApplicationController
-  respond_to :js
   def create
     @user = User.includes(:posts).find(params[:user_id])
     @post = @user.posts.includes(:author, :comments).find(params[:post_id])
