@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
+    @users = User.includes(:posts) # Eager load associated posts
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.includes(posts: [:comments, :likes]).find(params[:id]) # Eager load posts with comments and likes
   end
 end

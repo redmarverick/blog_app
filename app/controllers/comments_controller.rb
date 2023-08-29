@@ -1,13 +1,13 @@
 class CommentsController < ApplicationController
   def new
     @user = User.find(params[:user_id])
-    @post = @user.posts.find(params[:post_id])
+    @post = @user.posts.includes(:author, :comments).find(params[:post_id]) # Eager load author and comments
     @comment = Comment.new
   end
 
   def create
     @user = User.find(params[:user_id])
-    @post = @user.posts.find(params[:post_id])
+    @post = @user.posts.includes(:author, :comments).find(params[:post_id]) # Eager load author and comments
     @comment = @post.comments.build(comment_params)
     @comment.author = current_user
 

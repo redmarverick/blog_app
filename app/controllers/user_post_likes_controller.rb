@@ -1,12 +1,17 @@
 class UserPostLikesController < ApplicationController
   def create
-    @user = User.find(params[:user_id])
-    @post = @user.posts.find(params[:post_id])
+    @user = User.includes(:posts).find(params[:user_id])
+    @post = @user.posts.includes(:author, :comments).find(params[:post_id])
     @like = Like.new(author: current_user, post: @post)
+
     if @like.save
-      redirect_to user_posts_path(@user, @post), notice: 'Like was successfully created.'
+      respond_to do |format|
+        format.js
+      end
     else
-      redirect_to user_posts_path(@user, @post), alert: 'There was an error creating the like.'
+      respond_to do |format|
+        format.js { render 'error' } # Render the error.js.erb template
+      end
     end
   end
 end
