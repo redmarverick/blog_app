@@ -35,7 +35,7 @@
 
             <div class="text-gray-600 text-right">
               <i class="mb-1">Comments: <%= epost.comments_counter %> Likes: <%= epost.likes_counter %></i>
-              <%= button_to user_post_likes_path(@user, epost), method: :post, class: 'like-button' do %>
+              <%= button_to user_post_likes_path(@user, epost), method: :post, class: 'like-button', remote: true do %>
               <br/>
               <span class="p-1 mt-1 border border-gray-300 rounded-lg">
                 <i class="fas fa-thumbs-up fa-lg text-blue-500"></i>
@@ -43,6 +43,7 @@
               </span>
               <% end %>
             </div>
+
           </li>
           <% if epost.comments.present? %>
             <ul class="p-4 bg-white border border-gray-300 rounded-lg">

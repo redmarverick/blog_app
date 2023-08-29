@@ -4,6 +4,9 @@ require_relative '../config/environment'
 
 abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
+require 'capybara/rspec'
+
+Capybara.default_driver = :selenium_chrome
 
 begin
   ActiveRecord::Migration.maintain_test_schema!

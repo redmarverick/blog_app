@@ -10,9 +10,9 @@ class UserPostsController < ApplicationController
 
     @user = User.find(params[:user_id])
     @posts = @user.posts.ordered_by_id_desc
-                  .includes(:comments, :likes) # Eager load comments and likes
-                  .limit(@posts_per_page)
-                  .offset(offset)
+      .includes(:comments, :likes) # Eager load comments and likes
+      .limit(@posts_per_page)
+      .offset(offset)
   end
 
   def show
