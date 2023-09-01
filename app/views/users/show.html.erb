@@ -5,6 +5,14 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body>
+<div class="flex justify-end space-x-4 absolute top-0 right-0 m-6">
+  <%= button_to(edit_user_registration_path, method: :get) do %>
+    <button class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">Edit Account</button>
+  <% end %>
+  <%= button_to(destroy_user_session_path, method: :delete) do %>
+    <button class="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600">Log Out</button>
+  <% end %>
+</div>
 <div class="min-h-screen w-full mt-2 flex flex-col justify-center items-center bg-gray-100">
   <div class="flex w-10/12 items-center space-x-4 p-4 bg-white border border-gray-300 rounded-lg">
     <div class="w-12 h-12">
@@ -40,6 +48,9 @@
       </li>
     <% end %>
   </ul>
+  <%= link_to new_user_post_path(@user), class: "mb-4" do %>
+    <button class="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600">Create Post</button>
+  <% end %>
   <% if @user.most_recent_posts(100).present? %>
     <a href="<%= user_posts_path(@user) %>" class="flex items-center space-x-2 mt-4">
       <button class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">See all posts</button>

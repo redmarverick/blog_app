@@ -6,6 +6,9 @@
   <script src="https://kit.fontawesome.com/2e46d3026c.js" crossorigin="anonymous"></script>
 </head>
 <body>
+<%= button_to(destroy_user_session_path, method: :delete) do %>
+  <button class="px-4 float-right m-6 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600">Log Out</button>
+<% end %>
 <div class="min-h-screen w-full flex flex-col justify-center items-center bg-gray-100">
   <div class="flex w-10/12 items-center space-x-4 p-4 bg-white border border-gray-300 rounded-lg mb-4 mt-4">
     <div class="w-12 h-12">

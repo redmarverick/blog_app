@@ -83,3 +83,5 @@ group :test do
   gem 'ffi'
   gem 'webdrivers'
 end
+
+gem "devise", "~> 4.9"

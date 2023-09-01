@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!
   def new
     @user = User.find(params[:user_id])
     @post = @user.posts.includes(:author, :comments).find(params[:post_id]) # Eager load author and comments

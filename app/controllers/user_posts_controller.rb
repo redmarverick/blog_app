@@ -1,4 +1,5 @@
 class UserPostsController < ApplicationController
+  before_action :authenticate_user!
   before_action :find_user, only: [:index, :show, :new, :create]
   before_action :find_post, only: [:show]
 
