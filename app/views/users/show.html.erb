@@ -5,7 +5,10 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body>
-<div class="flex justify-end space-x-4 absolute top-0 right-0 m-6">
+<div class="flex justify-end space-x-4 absolute items-center top-0 right-0 m-6">
+  <%= link_to user_path(current_user) do %>
+    <span class="text-gray-600 font-bold"><%= current_user.name %></span>
+  <% end %>
   <%= button_to(edit_user_registration_path, method: :get) do %>
     <button class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">Edit Account</button>
   <% end %>
@@ -19,7 +22,7 @@
       <img src="<%= @user.photo %>" class="w-full h-full rounded-full">
     </div>
     <div class="flex flex-col w-full">
-      <div class="text-lg font-semibold"><%= @user.name %></div>
+      <div class="text-lg font-semibold"><%= link_to @user.name, user_path(@user.id) %></div>
       <div class="text-gray-600 w-full text-right">Posts: <%= @user.posts_counter %></div>
     </div>
   </div>
@@ -48,9 +51,13 @@
       </li>
     <% end %>
   </ul>
-  <%= link_to new_user_post_path(@user), class: "mb-4" do %>
-    <button class="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600">Create Post</button>
+
+  <% if current_user.id == @user.id %>
+    <%= link_to new_user_post_path(@user), class: "mb-4" do %>
+      <button class="px-4 py-2 mt-4 bg-green-500 text-white rounded-lg hover:bg-green-600">Create Post</button>
+    <% end %>
   <% end %>
+
   <% if @user.most_recent_posts(100).present? %>
     <a href="<%= user_posts_path(@user) %>" class="flex items-center space-x-2 mt-4">
       <button class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">See all posts</button>

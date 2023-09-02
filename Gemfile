@@ -9,6 +9,8 @@ gem 'rails-controller-testing'
 
 gem 'factory_bot_rails'
 
+gem 'cancancan'
+
 gem 'shoulda-matchers'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"

@@ -14,21 +14,31 @@
     <div class="text-lg font-semibold"><%= @post.title %> by <%= @post.author.name%></div>
     <div class="text-gray-600 mt-0 text-right text-top text-sm h-4">
       <i class="mb-1">Comments: <%= @post.comments_counter %> Likes: <%= @post.likes_counter %></i>
+
       <%= button_to user_post_likes_path(@user, @post), method: :post, class: 'like-button', remote: true do %>
+
         <br/>
         <span class="p-1 mt-1 border border-gray-300 rounded-lg">
-                <i class="fas fa-thumbs-up fa-lg text-blue-500"></i>
-                <i>Like</i>
-              </span>
+          <i class="fas fa-thumbs-up fa-lg text-blue-500"></i>
+          <i>Like</i>
+        </span>
       <% end %>
     </div>
     <div class="text-gray-600 mt-6"><%= @post.text %></div>
+
+    <%= link_to "Delete Post", user_post_path(@user, @post),  method: :delete, data: { confirm: "Are you sure?" },
+                class: "see-post" if can? :destroy, @post%>
+
   </div>
   <ul class="p-4 w-11/12 bg-white border border-gray-300 rounded-lg mb-4">
     <% if @post.comments.present? %>
       <% @post.comments.each do |ecomment| %>
         <li class="pr-4 pl-4 w-10/12">
           <div><%= ecomment.author.name %>: <%= ecomment.text %></div>
+
+          <%= link_to "Delete comment", user_post_comments_path(ecomment.author.name, ecomment.text),
+                      method: :delete, class: "delete" if can? :destroy, comment%>
+
         </li>
       <% end %>
     <% else %>

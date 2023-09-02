@@ -1,10 +1,11 @@
-class UserPostsController < ApplicationController
+class PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_user, only: [:index, :show, :new, :create]
   before_action :find_post, only: [:show]
   load_and_authorize_resource
 
   def index
+    @post = Post.new(author: current_user)
     @posts_per_page = 2
     @total_pages = (@user.posts.count.to_f / @posts_per_page).ceil
     @page = (params[:page] || 1).to_i
@@ -23,11 +24,13 @@ class UserPostsController < ApplicationController
   end
 
   def new
-    @post = @user.posts.new
+    @post = Post.new
+    @post.author = current_user
   end
 
   def create
-    @post = @user.posts.new(post_params)
+    @post = Post.new(post_params)
+    @post.author = current_user
     if @post.save
       redirect_to user_posts_path(@user), notice: 'Post created successfully.'
     else
@@ -38,6 +41,7 @@ class UserPostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     authorize! :destroy, @post
+    @user = User.find(params[:user_id])
 
     if @post.destroy
       redirect_to user_posts_path(@user), notice: 'Post deleted successfully.'
