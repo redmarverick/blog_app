@@ -24,4 +24,12 @@ Rails.application.routes.draw do
   resources :user_posts, only: [:index, :show, :new, :create] do
     resources :likes, only: [:create], controller: 'user_post_likes'
   end
+
+  namespace :api do
+    resources :users, only: [] do
+      resources :posts, only: [:index, :show] do
+        resources :comments, only: [:index, :create]
+      end
+    end
+  end
 end

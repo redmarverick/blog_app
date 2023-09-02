@@ -11,6 +11,8 @@ gem 'factory_bot_rails'
 
 gem 'cancancan'
 
+gem 'active_model_serializers', '~> 0.10.13'
+
 gem 'shoulda-matchers'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
