@@ -124,6 +124,20 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="active_model_serializers (vbundled(0.10.13)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/specs.4.8.gz/ruby/3.2.0/gems/active_model_serializers-0.10.13/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/specs.4.8.gz/ruby/3.2.0/gems/active_model_serializers-0.10.13/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="activejob (vbundled(7.0.7)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
@@ -368,6 +382,20 @@
         <excluded>
           <root url="file://$MODULE_DIR$/specs.4.8.gz/ruby/3.2.0/gems/capybara-3.39.2/spec" />
         </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="case_transform (vbundled(0.2)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/specs.4.8.gz/ruby/3.2.0/gems/case_transform-0.2/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/specs.4.8.gz/ruby/3.2.0/gems/case_transform-0.2/lib" />
+        </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library">
@@ -797,6 +825,20 @@
           <root url="file://$MODULE_DIR$/specs.4.8.gz/ruby/3.2.0/gems/jbuilder-2.11.5/.github" />
           <root url="file://$MODULE_DIR$/specs.4.8.gz/ruby/3.2.0/gems/jbuilder-2.11.5/gemfiles" />
         </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jsonapi-renderer (vbundled(0.2.2)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/specs.4.8.gz/ruby/3.2.0/gems/jsonapi-renderer-0.2.2/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/specs.4.8.gz/ruby/3.2.0/gems/jsonapi-renderer-0.2.2/lib" />
+        </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library">
@@ -2123,6 +2165,7 @@
         <option value="rspec:view" />
         <option value="scaffold" />
         <option value="scaffold_controller" />
+        <option value="serializer" />
         <option value="stimulus" />
         <option value="system_test" />
         <option value="task" />
@@ -2188,6 +2231,7 @@
         <option value="rspec:view" />
         <option value="scaffold" />
         <option value="scaffold_controller" />
+        <option value="serializer" />
         <option value="stimulus" />
         <option value="system_test" />
         <option value="task" />
