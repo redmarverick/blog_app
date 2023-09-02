@@ -11,7 +11,7 @@ class Api::CommentsController < ApplicationController
     @user = User.find(params[:user_id])
     @post = @user.posts.includes(:author, :comments).find(params[:post_id]) # Eager load author and comments
     @comment = @post.comments.build(comment_params)
-    @comment.author = current_user
+    @comment.author = @user
 
     if @comment.save
       render json: @comment, status: :created
