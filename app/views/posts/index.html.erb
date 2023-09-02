@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User's Posts</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/2e46d3026c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="flex justify-end space-x-4 absolute items-center top-0 right-0 m-6">
+  <%= link_to user_path(current_user) do %>
+    <span class="text-gray-600 font-bold"><%= current_user.name %></span>
+  <% end %>
+  <%= button_to(edit_user_registration_path, method: :get) do %>
+    <button class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">Edit Account</button>
+  <% end %>
+  <%= button_to(destroy_user_session_path, method: :delete) do %>
+    <button class="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600">Log Out</button>
+  <% end %>
+</div>
+<div class="min-h-screen w-full flex mt-10 flex-col justify-center items-center bg-gray-100">
+  <div class="flex w-10/12 items-center space-x-4 p-4 bg-white border border-gray-300 rounded-lg mb-4 mt-4">
+    <div class="w-12 h-12">
+      <img src="<%= @user.photo %>" class="w-full h-full rounded-full">
+    </div>
+    <div class="flex flex-col w-full">
+      <div class="text-lg font-semibold"><%= link_to @user.name, user_path(@user.id) %></div>
+      <div class="text-gray-600 w-full text-right">Posts: <%= @user.posts_counter %></div>
+    </div>
+  </div>
+
+  <% if current_user.id == @user.id %>
+    <%= link_to new_user_post_path(@user), class: "mb-4" do %>
+      <button class="px-4 py-2 mt-4 bg-green-500 text-white rounded-lg hover:bg-green-600">Create Post</button>
+    <% end %>
+  <% end %>
+
+  <% if @posts.empty? %>
+    <div class="p-4 bg-white border border-gray-300 rounded-lg">No posts yet</div>
+  <% else %>
+    <ul class="w-10/12">
+      <% @posts.each do |epost| %>
+          <li class="post-<%= epost.id %> p-4 bg-white border border-gray-300 rounded-lg">
+            <a href="<%= user_post_path(@user, epost) %>" class="hover:underline"><div class="text-lg font-semibold"><%= epost.title %></div></a>
+            <div class="text-gray-600">
+              <%= truncate(epost.text, length: 165) %>
+            </div>
+
+
+            <div class="text-gray-600 text-right">
+              <i class="mb-1">Comments: <%= epost.comments_counter %> Likes: <%= epost.likes_counter %></i>
+              <%= button_to user_post_likes_path(@user, epost), method: :post, class: 'like-button', remote: true do %>
+              <br/>
+              <span class="p-1 mt-1 border border-gray-300 rounded-lg">
+                <i class="fas fa-thumbs-up fa-lg text-blue-500"></i>
+                <i>Like</i>
+              </span>
+              <% end %>
+            </div>
+
+          </li>
+          <% if epost.comments.present? %>
+            <ul class="p-4 bg-white border border-gray-300 rounded-lg">
+              <% epost.five_most_recent_comments.each do |ecomment| %>
+                <li><%= ecomment.author.name %>: <%= ecomment.text %></li>
+              <% end %>
+            </ul>
+          <% else %>
+            <ul class="p-4 bg-white border border-gray-300 rounded-lg mb-4">
+              <li class="text-gray-600 ">0 Comments</li>
+            </ul>
+          <% end %>
+
+        <%= link_to new_user_post_comment_path(@user, epost), class: "hover:underline" do %>
+          <button class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 mt-2 mb-4">
+            Add Comment
+          </button>
+        <% end %>
+
+      <% end %>
+    </ul>
+    <div class="flex justify-between mt-4">
+      <% if @page > 1 %>
+        <a href="<%= user_posts_path(@user, page: @page - 1) %>" class="flex items-center space-x-2">
+          <button class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">Previous Page</button>
+        </a>
+      <% end %>
+      <% if @page < @total_pages %>
+        <a href="<%= user_posts_path(@user, page: @page + 1) %>" class="flex items-center space-x-2">
+          <button class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">Next Page</button>
+        </a>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+</body>
+</html>

@@ -338,6 +338,20 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="cancancan (vbundled(3.5.0)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/specs.4.8.gz/ruby/3.2.0/gems/cancancan-3.5.0/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/specs.4.8.gz/ruby/3.2.0/gems/cancancan-3.5.0/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="capybara (vbundled(3.39.2)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
@@ -2071,6 +2085,7 @@
         <option value="active_record:multi_db" />
         <option value="application_record" />
         <option value="benchmark" />
+        <option value="cancan:ability" />
         <option value="channel" />
         <option value="controller" />
         <option value="devise" />
@@ -2135,6 +2150,7 @@
         <option value="active_record:multi_db" />
         <option value="application_record" />
         <option value="benchmark" />
+        <option value="cancan:ability" />
         <option value="channel" />
         <option value="controller" />
         <option value="devise" />

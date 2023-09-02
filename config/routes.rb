@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   root to: "users#index"
 
   resources :users, only: [:index, :show] do
-    resources :posts, only: [:index, :show, :new, :create], controller: 'user_posts' do
-      resources :comments, only: [:new, :create]
+    resources :posts, only: [:index, :show, :new, :create, :destroy], controller: 'posts' do
+      resources :comments, only: [:new, :create, :destroy]
       resources :likes, only: [:create], controller: 'user_post_likes'
     end
   end

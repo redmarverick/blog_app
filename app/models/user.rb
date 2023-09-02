@@ -26,4 +26,8 @@ class User < ApplicationRecord
   def most_recent_posts(quant)
     posts.order(created_at: :asc).limit(quant)
   end
+
+  def admin?
+    role == 'admin'
+  end
 end
