@@ -57,6 +57,7 @@ In order to run this project you need:
 
 Ruby 3.0.1 or above
 Rails 7.07 or above
+Postgres 14 or above
 
 ### Setup
 
