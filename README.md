@@ -55,9 +55,9 @@ BlogApp
 
 In order to run this project you need:
 
-Ruby 3.0.1 or above
-Rails 7.07 or above
-Postgres 14 or above
+Ruby 3.0.1 or above </br>
+Rails 7.07 or above </br>
+Postgres 14 or above </br>
 
 ### Setup
 
@@ -73,6 +73,8 @@ go to the folder of the repository, and run this line in the terminal to install
 ### Usage
 
 run ```rails db:create db:migrate```
+
+The terminal needs to have Admin rights for the website to work properly:
 run ```rails server```
 
 After registering an user, the url for activating the account will be showed on the terminal, since there is no email service setup.
