@@ -72,6 +72,9 @@ go to the folder of the repository, and run this line in the terminal to install
 ### Usage
 
 run ```rails db:create db:migrate```
+run ```rails server```
+
+After registering an user, the url for activating the account will be showed on the terminal, since there is no email service setup.
 
 ### Run tests
 

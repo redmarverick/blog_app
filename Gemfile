@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.2.2'
+ruby '3.3.0'
 
 gem 'rspec-rails', '>= 5.0'
 
@@ -22,7 +22,7 @@ gem 'rails', '~> 7.0.7'
 gem 'sprockets-rails'
 
 # Use postgresql as the database for Active Record
-gem 'pg', '~> 1.1'
+gem 'pg'
 
 gem 'rubocop', '>= 1.0', '< 2.0'
 # Use the Puma web server [https://github.com/puma/puma]
